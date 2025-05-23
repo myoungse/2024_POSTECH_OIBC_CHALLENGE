@@ -15,41 +15,60 @@
 ---
 
 ## 📌 프로젝트 소개
-이 프로젝트는 2024 POSTECH X OIBC CHALLENGE에서 전력 가격 예측을 위해 개발된 솔루션입니다.
-Jeju Power Market의 날씨 데이터와 시장 데이터를 활용해 XGBoost Regressor 모델을 기반으로 하루 전(day-ahead) 전기 가격을 예측하였습니다.
+이 프로젝트는 2024 POSTECH × OIBC CHALLENGE에서 전력 가격 예측을 위해 개발된 솔루션입니다.  
+Jeju Power Market의 날씨 데이터와 시장 데이터를 활용해 RandomForest 및 SVR 앙상블 모델을 기반으로 하루 전(day-ahead) 전기 가격을 예측하였습니다.
 
 ---
 
-👥 팀 구성
+## 👥 팀 구성
 
-- 팀장: 윤명세
-  - 동의대학교 인공지능학과 3학년
-- 팀원: 황언종
-  - 부산대학교 의생명융합공학부 데이터사이언스전공 3학년
+- 윤명세 (동의대학교 인공지능학과 3학년)  
+- 황언종 (부산대학교 의생명융합공학부 데이터사이언스전공 3학년)  
+
+*모든 작업은 팀원 모두가 공동으로 수행하였습니다.*
 
 ---
 
-⚙️ 기술 스택 및 사용 라이브러리
+## ⚙️ 기술 스택 및 사용 라이브러리
 
-- 프로그래밍 언어: Python
-- 머신러닝 모델: XGBoost Regressor
-- 라이브러리:
-	- pandas, numpy: 데이터 전처리
-	- matplotlib, seaborn: 데이터 시각화
-	- sktime: 시계열 데이터 분리 및 평가
-	- xgboost: 모델 개발
-	- scikit-learn: 평가 지표 계산=
+| 구분           | 도구 및 라이브러리                                                                             |
+|----------------|----------------------------------------------------------------------------------------------|
+| 프로그래밍 언어 | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white) Python |
+| 데이터 처리    | ![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white) ![Numpy](https://img.shields.io/badge/Numpy-013243?style=flat&logo=numpy&logoColor=white) pandas, numpy |
+| 시각화         | ![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C?style=flat&logo=matplotlib&logoColor=white) ![Seaborn](https://img.shields.io/badge/Seaborn-1A2F40?style=flat&logo=seaborn&logoColor=white) matplotlib, seaborn |
+| 머신러닝       | ![Scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat&logo=scikit-learn&logoColor=white) RandomForest Regressor, SVR |
+| 하이퍼파라미터 | ![Optuna](https://img.shields.io/badge/Optuna-6F32BE?style=flat&logo=optuna&logoColor=white) Optuna |
+
 ---
-🔍 데이터 설명
 
-대회에서 제공된 데이터는 다음과 같습니다:
-	1. 기상 실측 데이터: 과거 날씨 데이터
-	2. 기상 예측 데이터: 미래 날씨 예측 정보
-	3. 시장 전기 가격 데이터: 실시간 가격 및 하루 전 가격
-	4. 시장 현황 데이터: 발전량, 수요량, 기타 현황 지표
+## 🔍 데이터 설명
 
-전처리를 통해 추가적으로 날짜와 시간 기반의 피처를 생성하였습니다.
+- 기상 실측 데이터, 기상 예측 데이터, 시장 전기 가격 데이터, 시장 현황 데이터 통합  
+- 시계열 특성을 반영하여 1시간 단위로 데이터 통합 및 결측치 보간  
+- 날짜, 시간, 요일, 공휴일, 계절성 등의 파생 변수 생성
+
 ---
+
+## 🧪 모델 학습 및 평가
+
+- 앙상블 모델 적용: RandomForest로 기본 예측 후 SVR로 잔차 보정  
+- 하이퍼파라미터 최적화: Optuna 베이지안 최적화 활용  
+- 시간 분할 검증 및 커스텀 평가 지표 적용  
+
+---
+
+## 📊 프로젝트 워크플로우
+
+```mermaid
+flowchart TD
+    A[데이터 수집] --> B[데이터 전처리]
+    B --> C[피처 엔지니어링]
+    C --> D[1차 모델 학습 (RandomForest)]
+    D --> E[잔차 계산]
+    E --> F[2차 모델 학습 (SVR)]
+    F --> G[최종 예측 결과 산출]
+    G --> H[모델 검증 및 평가]
+    H --> I[결과 분석 및 개선]
 
 🧪 모델 학습 및 평가
 
