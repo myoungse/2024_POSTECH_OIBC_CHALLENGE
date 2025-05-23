@@ -1,9 +1,6 @@
 # 2024_POSTECH_OIBC_CHALLENGE
 
-### 제6회 BIG DATA CHALLENGE 🏆
-
 ---
-
 ## 📌 프로젝트 소개
 이 프로젝트는 2024 POSTECH OIBC CHALLENGE에서 전력 가격 예측을 위해 개발된 솔루션입니다.  
 Jeju Power Market의 날씨 데이터와 시장 데이터를 활용해 RandomForest 및 SVR 앙상블 모델을 기반으로 하루 전(day-ahead) 전기 가격을 예측하였습니다.
