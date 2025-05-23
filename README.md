@@ -2,8 +2,6 @@
 
 ### 제6회 BIG DATA CHALLENGE 🏆
 
-<img src="https://github.com/user-attachments/assets/44e6f3e8-b715-46b8-9193-3a21c51ce0f7" alt="2024OIBC-poster-before" width="600" height = "800">
-
 ---
 
 ![Python](https://img.shields.io/badge/Python-3.8-blue)
@@ -85,7 +83,6 @@ Jeju Power Market의 날씨 데이터와 시장 데이터를 활용해 XGBoost R
 ---
 📊 결과 및 시각화
 </br>
-<img width="500" alt="image" src="https://github.com/user-attachments/assets/3fdb81a8-65ae-4472-b7c5-042d8121a01d" />
 
 ---
 🏆 수상 내역
